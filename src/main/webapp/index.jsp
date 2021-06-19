@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+
+<%@page import="br.com.tdstecnologia.domain.Card"%>
+
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
 		
 		<link href="static/bootstrap.min.css" rel="stylesheet" />
@@ -22,11 +25,18 @@
 				</div>			
 			</div>
 			<div class="row">
+				
+				<%
+					Card note = (Card) request.getAttribute("teste");
+				%>
+				
+				
+				
 				<div class="col-sm-12 col-md-4 p-2">				
 					<div class="card ">
 					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <h5 class="card-title"><%= note.getTitulo() %></h5>
+					    <p class="card-text"><%= note.getDescricao() %></p>
 					    
 					    <div>
 					    	<button class="btn btn-primary">Editar</button>
@@ -37,53 +47,6 @@
 					</div>
 				</div>
 				
-				
-				<div class="col-sm-12 col-md-4 p-2">				
-					<div class="card ">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    
-					    <div>
-					    	<button class="btn btn-primary">Editar</button>
-					    	<button class="btn btn-danger">Remover</button>
-					    </div>
-					    
-					  </div>
-					</div>
-				</div>
-				
-				
-				<div class="col-sm-12 col-md-4 p-2">				
-					<div class="card ">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    
-					    <div>
-					    	<button class="btn btn-primary">Editar</button>
-					    	<button class="btn btn-danger">Remover</button>
-					    </div>
-					    
-					  </div>
-					</div>
-				</div>
-				
-				
-				<div class="col-sm-12 col-md-4 p-2">				
-					<div class="card ">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    
-					    <div>
-					    	<button class="btn btn-primary">Editar</button>
-					    	<button class="btn btn-danger">Remover</button>
-					    </div>
-					    
-					  </div>
-					</div>
-				</div>
 				
 			</div>
 		</div>
