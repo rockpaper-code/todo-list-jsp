@@ -15,7 +15,17 @@
 	<servlet-mapping>
 		<servlet-name>TodoListServlet</servlet-name>
 		<url-pattern></url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>	
 	
+	<servlet>
+	    <servlet-name>SaveCardServlet</servlet-name>
+	    <display-name>SaveCardServlet</display-name>
+	    <servlet-class>br.com.tdstecnologia.controller.SaveCardServlet</servlet-class>
+	</servlet>	
+	
+	<servlet-mapping>
+		<servlet-name>SaveCardServlet</servlet-name>
+		<url-pattern>/saveCard</url-pattern>
+	</servlet-mapping>
 	
 </web-app>

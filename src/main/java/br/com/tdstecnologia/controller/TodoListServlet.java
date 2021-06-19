@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.tdstecnologia.domain.Card;
+import br.com.tdstecnologia.factory.TodoListFactory;
 
 public class TodoListServlet extends HttpServlet {
 	
@@ -18,6 +19,14 @@ public class TodoListServlet extends HttpServlet {
 		super.init();
 		
 		System.out.println("Iniciou a Servlet TodoList");
+		
+		Card anotacao1 = new Card("Card 1", "descricao 1");
+		Card anotacao2 = new Card("Card 2", "descricao 2");
+		Card anotacao3 = new Card("Card 3", "descricao 3");
+
+		TodoListFactory.addCard(anotacao1);
+		TodoListFactory.addCard(anotacao2);
+		TodoListFactory.addCard(anotacao3);
     }
 	
 	@Override
@@ -40,11 +49,7 @@ public class TodoListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		Card anotacao = new Card();
-		anotacao.setTitulo("Card teste"); 
-		anotacao.setDescricao("Descricação do card");
-		
-		req.setAttribute("teste", anotacao);
+		req.setAttribute("cards", TodoListFactory.getCards());
 		
 		req
 			.getRequestDispatcher("index.jsp")

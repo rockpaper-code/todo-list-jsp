@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<%@page import="java.util.List"%>
 <%@page import="br.com.tdstecnologia.domain.Card"%>
 
 <html>
@@ -19,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12 border p-3 rounded my-3">
-					<a href="#">
+					<a href="<%= request.getContextPath() + "/form-create.html" %>">
 						<h2>Adicionar Card</h2>
 					</a>
 				</div>			
@@ -27,25 +28,29 @@
 			<div class="row">
 				
 				<%
-					Card note = (Card) request.getAttribute("teste");
+					List<Card> notes = (List<Card>) request.getAttribute("cards");
 				%>
 				
-				
-				
-				<div class="col-sm-12 col-md-4 p-2">				
-					<div class="card ">
-					  <div class="card-body">
-					    <h5 class="card-title"><%= note.getTitulo() %></h5>
-					    <p class="card-text"><%= note.getDescricao() %></p>
-					    
-					    <div>
-					    	<button class="btn btn-primary">Editar</button>
-					    	<button class="btn btn-danger">Remover</button>
-					    </div>
-					    
-					  </div>
+				<%
+					for(Card card : notes) {
+				%>
+					<div class="col-sm-12 col-md-4 p-2">				
+						<div class="card ">
+						  <div class="card-body">
+						    <h5 class="card-title"><%= card.getTitulo() %></h5>
+						    <p class="card-text"><%= card.getDescricao() %></p>
+						    
+						    <div>
+						    	<button class="btn btn-primary">Editar</button>
+						    	<button class="btn btn-danger">Remover</button>
+						    </div>
+						    
+						  </div>
+						</div>
 					</div>
-				</div>
+				<%
+					}
+				%>
 				
 				
 			</div>
